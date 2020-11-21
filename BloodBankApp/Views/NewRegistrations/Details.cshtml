@@ -1,0 +1,98 @@
+﻿@model BloodBankApp.Models.NewRegistration
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NewRegistration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BloodGroup.GroupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BloodGroup.GroupName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender.GenderName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender.GenderName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Qualification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qualification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.ImageUrl)" alt="Alternate Text" width="50" height="50" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RegId }, new { @class = "btn btn-warning glyphicon glyphicon-pencil" }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

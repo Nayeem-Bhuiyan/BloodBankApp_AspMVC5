@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="text-right">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h3>Welcome to @(User.Identity.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Guest")</h3>
+        <a style="float:right" class="text-info" href="@Url.Action("SignOut","Home")">SignOut</a>
+    }
+</div>

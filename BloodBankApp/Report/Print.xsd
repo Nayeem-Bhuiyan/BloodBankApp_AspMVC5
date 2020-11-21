@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Print" targetNamespace="http://tempuri.org/Print.xsd" xmlns:mstns="http://tempuri.org/Print.xsd" xmlns="http://tempuri.org/Print.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="BloodBankDbConnection" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BloodBankDbConnection (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.BloodBankDbConnection.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BloodRequestTableAdapter" GeneratorDataComponentClassName="BloodRequestTableAdapter" Name="BloodRequest" UserDataComponentName="BloodRequestTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BloodBankDbConnection (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select * 
+from BloodGroup g
+join BloodRequest r on g.GroupId=r.GroupId
+join Gender gn on r.GenderId=gn.GenderId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="GroupId" DataSetColumn="GroupId" />
+              <Mapping SourceColumn="GroupName" DataSetColumn="GroupName" />
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Phone" DataSetColumn="Phone" />
+              <Mapping SourceColumn="PatientAge" DataSetColumn="PatientAge" />
+              <Mapping SourceColumn="Problem" DataSetColumn="Problem" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="HospitalName" DataSetColumn="HospitalName" />
+              <Mapping SourceColumn="BloodRequestDate" DataSetColumn="BloodRequestDate" />
+              <Mapping SourceColumn="BloodNeedDate" DataSetColumn="BloodNeedDate" />
+              <Mapping SourceColumn="Countity" DataSetColumn="Countity" />
+              <Mapping SourceColumn="Photo" DataSetColumn="Photo" />
+              <Mapping SourceColumn="PhotoPathUrl" DataSetColumn="PhotoPathUrl" />
+              <Mapping SourceColumn="GroupId1" DataSetColumn="GroupId1" />
+              <Mapping SourceColumn="GenderId" DataSetColumn="GenderId" />
+              <Mapping SourceColumn="GenderId1" DataSetColumn="GenderId1" />
+              <Mapping SourceColumn="GenderName" DataSetColumn="GenderName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Print" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Print" msprop:Generator_UserDSName="Print">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BloodRequest" msprop:Generator_TableClassName="BloodRequestDataTable" msprop:Generator_TableVarName="tableBloodRequest" msprop:Generator_RowChangedName="BloodRequestRowChanged" msprop:Generator_TablePropName="BloodRequest" msprop:Generator_RowDeletingName="BloodRequestRowDeleting" msprop:Generator_RowChangingName="BloodRequestRowChanging" msprop:Generator_RowEvHandlerName="BloodRequestRowChangeEventHandler" msprop:Generator_RowDeletedName="BloodRequestRowDeleted" msprop:Generator_RowClassName="BloodRequestRow" msprop:Generator_UserTableName="BloodRequest" msprop:Generator_RowEvArgName="BloodRequestRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GroupId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnGroupId" msprop:Generator_ColumnPropNameInRow="GroupId" msprop:Generator_ColumnPropNameInTable="GroupIdColumn" msprop:Generator_UserColumnName="GroupId" type="xs:int" />
+              <xs:element name="GroupName" msprop:Generator_ColumnVarNameInTable="columnGroupName" msprop:Generator_ColumnPropNameInRow="GroupName" msprop:Generator_ColumnPropNameInTable="GroupNameColumn" msprop:Generator_UserColumnName="GroupName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_UserColumnName="Phone">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PatientAge" msprop:Generator_ColumnVarNameInTable="columnPatientAge" msprop:Generator_ColumnPropNameInRow="PatientAge" msprop:Generator_ColumnPropNameInTable="PatientAgeColumn" msprop:Generator_UserColumnName="PatientAge" type="xs:int" />
+              <xs:element name="Problem" msprop:Generator_ColumnVarNameInTable="columnProblem" msprop:Generator_ColumnPropNameInRow="Problem" msprop:Generator_ColumnPropNameInTable="ProblemColumn" msprop:Generator_UserColumnName="Problem">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HospitalName" msprop:Generator_ColumnVarNameInTable="columnHospitalName" msprop:Generator_ColumnPropNameInRow="HospitalName" msprop:Generator_ColumnPropNameInTable="HospitalNameColumn" msprop:Generator_UserColumnName="HospitalName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BloodRequestDate" msprop:Generator_ColumnVarNameInTable="columnBloodRequestDate" msprop:Generator_ColumnPropNameInRow="BloodRequestDate" msprop:Generator_ColumnPropNameInTable="BloodRequestDateColumn" msprop:Generator_UserColumnName="BloodRequestDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BloodNeedDate" msprop:Generator_ColumnVarNameInTable="columnBloodNeedDate" msprop:Generator_ColumnPropNameInRow="BloodNeedDate" msprop:Generator_ColumnPropNameInTable="BloodNeedDateColumn" msprop:Generator_UserColumnName="BloodNeedDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Countity" msprop:Generator_ColumnVarNameInTable="columnCountity" msprop:Generator_ColumnPropNameInRow="Countity" msprop:Generator_ColumnPropNameInTable="CountityColumn" msprop:Generator_UserColumnName="Countity" type="xs:int" />
+              <xs:element name="Photo" msprop:Generator_ColumnVarNameInTable="columnPhoto" msprop:Generator_ColumnPropNameInRow="Photo" msprop:Generator_ColumnPropNameInTable="PhotoColumn" msprop:Generator_UserColumnName="Photo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="PhotoPathUrl" msprop:Generator_ColumnVarNameInTable="columnPhotoPathUrl" msprop:Generator_ColumnPropNameInRow="PhotoPathUrl" msprop:Generator_ColumnPropNameInTable="PhotoPathUrlColumn" msprop:Generator_UserColumnName="PhotoPathUrl" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GroupId1" msprop:Generator_ColumnVarNameInTable="columnGroupId1" msprop:Generator_ColumnPropNameInRow="GroupId1" msprop:Generator_ColumnPropNameInTable="GroupId1Column" msprop:Generator_UserColumnName="GroupId1" type="xs:int" minOccurs="0" />
+              <xs:element name="GenderId" msprop:Generator_ColumnVarNameInTable="columnGenderId" msprop:Generator_ColumnPropNameInRow="GenderId" msprop:Generator_ColumnPropNameInTable="GenderIdColumn" msprop:Generator_UserColumnName="GenderId" type="xs:int" minOccurs="0" />
+              <xs:element name="GenderId1" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnGenderId1" msprop:Generator_ColumnPropNameInRow="GenderId1" msprop:Generator_ColumnPropNameInTable="GenderId1Column" msprop:Generator_UserColumnName="GenderId1" type="xs:int" />
+              <xs:element name="GenderName" msprop:Generator_ColumnVarNameInTable="columnGenderName" msprop:Generator_ColumnPropNameInRow="GenderName" msprop:Generator_ColumnPropNameInTable="GenderNameColumn" msprop:Generator_UserColumnName="GenderName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BloodRequest" />
+      <xs:field xpath="mstns:GroupId" />
+      <xs:field xpath="mstns:Id" />
+      <xs:field xpath="mstns:GenderId1" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

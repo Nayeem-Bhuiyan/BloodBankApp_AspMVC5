@@ -1,0 +1,195 @@
+﻿
+@model PagedList.IPagedList<BloodBankApp.Models.BloodRequest>
+@using PagedList.Mvc;
+@using PagedList;
+
+
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/SearchBloodRequestDetails.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+
+            <div class="text-right">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <h3>Welcome to @(User.Identity.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Guest")</h3>
+                    <a style="float:right" class="text-info" href="@Url.Action("SignOut","Home")">SignOut</a>
+                }
+            </div>
+            <div id="Div_tblBloodRequestIndex">
+                <h2>Blood Request Informations</h2>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        @Html.ActionLink("Create New", "Create", new { }, new { @class = "btn btn-primary" })
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" id="SearchParam_bloodRequest" name="SearchParameter" value="" placeholder="Enter Search Param" class="form-control" style="float:left" />
+                        <button type="button" class="btn btn-primary" id="btnSearch">Search</button>
+                    </div>
+                </div>
+
+
+                <br />
+
+
+                <table class="table table-bordered table-striped table-responsive" id="tblBloodRequestIndex">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Phone
+                        </th>
+                        <th>
+                            Patient Age
+                        </th>
+                        <th>
+                            Problem
+                        </th>
+                        <th>
+                            Address
+                        </th>
+                        <th>
+                            Hospital Name
+                        </th>
+                        <th>
+                            Request Date
+                        </th>
+                        <th>
+                            Need Date
+                        </th>
+                        <th>
+                            Blood Count
+                        </th>
+
+                        <th>
+                            Donor Picture
+                        </th>
+                        <th>
+                            Group Name
+                        </th>
+                        <th>
+                            Gender Name
+                        </th>
+                        <th>Action</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PatientAge)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Problem)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HospitalName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BloodRequestDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BloodNeedDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Countity)
+                            </td>
+                            <td>
+                                <img src="@Url.Content(item.PhotoPathUrl)" height="70" width="70" alt="No Image" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BloodGroup.GroupName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Gender.GenderName)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-warning glyphicon glyphicon-pencil" })
+                                @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-success glyphicon glyphicon-eye-open" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-info glyphicon glyphicon-trash" })
+                                @Html.ActionLink("Print", "IndividualReport", new { id = item.id }, new { @class = "btn btn-primary glyphicon glyphicon-print" })
+
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                <div class="pageCount">
+                    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                </div>
+                @Html.PagedListPager(Model, pagePos => Url.Action("Index", new { pagePos }))
+            </div>
+        </div>
+        <div id="Search_Div" style="display:none">
+            <h1>Search Result</h1>
+            <table class="table table-bordered table-striped">
+                <thead class="bg-success">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Phone
+                        </th>
+                        <th>
+                            Problem
+                        </th>
+                        <th>
+                            Address
+                        </th>
+                        <th>
+                            HospitalName
+                        </th>
+                        <th>
+                            RequestDate
+                        </th>
+                        <th>
+                            NeedDate
+                        </th>
+
+                        <th>
+                            BloodGroup
+                        </th>
+                        <th>
+                            Gender
+                        </th>
+                        <th>Action</th>
+                </thead>
+                <tbody id="SearchResult_tbl_BloodRequestData">
+                </tbody>
+            </table>
+            <button type="button" id="btnBack" class="btn btn-success">Back</button>
+
+        </div>
+    </div>
+</body>
+</html>
+

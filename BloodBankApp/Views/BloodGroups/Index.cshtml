@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BloodBankApp.Models.BloodGroup>
+@using Microsoft.AspNet.Identity
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Blood Group table</h2>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <div class="text-left">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <h3>Welcome to @(User.Identity.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Guest")</h3>
+                    <a style="float:left" class="text-info" href="@Url.Action("SignOut","Home")">SignOut</a>
+                }
+            </div>
+        </div>
+
+    </div>
+
+    <p>
+        @Html.ActionLink("Create New", "Create", new { }, new { @class = "btn btn-success" })
+    </p>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GroupName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.GroupId }, new { @class = "btn btn-warning glyphicon glyphicon-pencil" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.GroupId }, new { @class = "btn btn-success glyphicon glyphicon-eye-open" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.GroupId }, new { @class = "btn btn-info glyphicon glyphicon-trash" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

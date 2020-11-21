@@ -1,0 +1,39 @@
+﻿@model IEnumerable<BloodBankApp.Models.Gender>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Gender Table</h2>
+<div class="text-right">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h3>Welcome to @(User.Identity.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Guest")</h3>
+        <a style="float:right" class="text-info" href="@Url.Action("SignOut","Home")">SignOut</a>
+    }
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create",new { }, new { @class = "btn btn-success" })
+</p>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GenderName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GenderName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GenderId }, new { @class = "btn btn-warning glyphicon glyphicon-pencil" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GenderId }, new { @class = "btn btn-success glyphicon glyphicon-eye-open" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GenderId }, new { @class = "btn btn-info glyphicon glyphicon-trash" })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,187 @@
+﻿@model PagedList.IPagedList<BloodBankApp.Models.NewRegistration>
+@using PagedList.Mvc;
+@using PagedList;
+
+@using Microsoft.AspNet.Identity
+
+
+
+
+
+@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/SearchRegistrationDetails.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            
+            <div class="text-right">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <h3>Welcome to @(User.Identity.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Guest")</h3>
+                    <a style="float:right" class="text-info" href="@Url.Action("SignOut","Home")">SignOut</a>
+                }
+            </div>
+        </div>
+        <div id="Div_table_Registration">
+            <h3>Blood Donor Registration List</h3>
+
+            <div class="row">
+                <div class="col-md-4">
+                    @Html.ActionLink("Create New", "Create", new { }, new { @class = "btn btn-success" })
+                </div>
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+                    <input type="text" id="SearchParam_NewRegistration" name="SearchParameter" value="" placeholder="Enter Search Param" class="form-control" style="float:left" />
+                    <button type="button" class="btn btn-primary" id="btnRegSearch">Search</button>
+                </div>
+            </div><br />
+
+
+
+
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>
+                        Blood Donor
+                    </th>
+
+                    <th>
+                        Gender
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Password
+                    </th>
+                    <th>
+                        Phone
+                    </th>
+                    <th>
+                        Age
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        Qualification
+                    </th>
+                    <th>
+                        Blood Group
+                    </th>
+                    <th>
+                        Picture
+                    </th>
+                    <th>Action</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DonorName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Gender.GenderName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmailNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Password)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Age)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Qualification)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BloodGroup.GroupName)
+                        </td>
+                        <td>
+                            <img src="@Url.Content(item.ImageUrl)" alt="Alternate Text" width="70" height="70" />
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.RegId }, new { @class = "btn btn-warning glyphicon glyphicon-pencil" }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.RegId }, new { @class = "btn btn-success glyphicon glyphicon-eye-open" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RegId }, new { @class = "btn btn-info glyphicon glyphicon-trash" })|
+                            @Html.ActionLink("Print", "PrintNewRegistrationDetails", new { id = item.RegId }, new { @class = "btn btn-primary glyphicon glyphicon-print" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            <div class="pageCount">
+                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            </div>
+            @Html.PagedListPager(Model, pagePos => Url.Action("Index", new { pagePos }))
+
+        </div>
+
+
+        <div id="Div_Search_Registration" style="display:none">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Blood Donor
+                        </th>
+
+                        <th>
+                            Gender
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Password
+                        </th>
+                        <th>
+                            Phone
+                        </th>
+                        <th>
+                            Age
+                        </th>
+                        <th>
+                            Address
+                        </th>
+                        <th>
+                            Qualification
+                        </th>
+                        <th>
+                            Blood Group
+                        </th>
+                        <th>
+                            Picture
+                        </th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tbl_RegistrationData">
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-success" id="btnBack">Back</button>
+        </div>
+
+    </div>
+</body>
+</html>

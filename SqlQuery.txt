@@ -1,0 +1,68 @@
+Create Database BloodBank
+go
+
+Use BloodBank
+go
+
+Create Table Admin
+(
+	UserId int primary key identity, 
+	UserName varchar(30) Not Null, 
+	Password varchar(12)not null  --( you add Conform password, Forgate password) user can all data access
+)
+
+Create table BloodGroup
+(
+ GroupId int primary key identity,
+ GroupName Varchar(8) not null,   --//dropdown
+)
+go
+
+Create Table NewRegistration     
+(
+	RegId int primary key identity,
+    EmailNumber nvarchar(50) unique, --// unique
+	Password nvarchar(80),--//
+	DonorName varchar(30) Not Null,
+	Phone varchar(11)not null,
+	Age int  not null, ---// Minimum 18 Max 45 DROP down 
+	Address varchar(150) not null,
+	Qualification varchar(30) not null,
+	Photo image , --// uplode image max size
+	GroupId int references BloodGroup(GroupId), --//dropdown
+	GenderId int references Gender(GenderId), --//dropdown
+	--// Are you willing to donate blood? Yes /No 
+	
+)
+go
+
+Create table Gender
+(
+ GenderId int primary key Identity,
+ GenderName varchar(10) Not null   --//dropdown
+)
+go
+
+
+
+
+
+Create Table BloodRequest
+(
+	Id int primary key identity,
+	Name varchar(30) Not Null,
+	Phone varchar(11)not null,
+	PatientAge int  not null,
+	Problem varchar(60) not null,
+	Address varchar(120) not null,
+	HospitalName varchar(100) not null,
+	BloodRequestDate DATE,  --// 
+	BloodNeedDate date,      --// date and time. whene need blood 
+	Countity int not null, --// How much 
+	Photo varbinary(max) ,       --//Uplod image max size
+	PhotoPathUrl nvarchar(max),
+	GroupId int references BloodGroup(GroupId),  --//dropdown
+	GenderId int references Gender(GenderId),  --//dropdown
+	
+)
+go

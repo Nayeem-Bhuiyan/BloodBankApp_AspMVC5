@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NewRegistrationReport" targetNamespace="http://tempuri.org/NewRegistrationReport.xsd" xmlns:mstns="http://tempuri.org/NewRegistrationReport.xsd" xmlns="http://tempuri.org/NewRegistrationReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="BloodBankDbContext" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BloodBankDbContext (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.BloodBankDbContext.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NewRegistrationTableAdapter" GeneratorDataComponentClassName="NewRegistrationTableAdapter" Name="NewRegistration" UserDataComponentName="NewRegistrationTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BloodBankDbContext (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        g.GroupId, g.GroupName, nr.RegId, nr.EmailNumber, nr.Password, nr.DonorName, nr.Phone, nr.Age, nr.Address, nr.Qualification, nr.Photo, nr.ImageUrl, nr.GroupId AS Expr1, nr.GenderId, gn.GenderId AS Expr2, 
+                         gn.GenderName
+FROM            BloodGroups AS g INNER JOIN
+                         NewRegistrations AS nr ON nr.GroupId = g.GroupId INNER JOIN
+                         Genders AS gn ON nr.GenderId = gn.GenderId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="GroupId" DataSetColumn="GroupId" />
+              <Mapping SourceColumn="GroupName" DataSetColumn="GroupName" />
+              <Mapping SourceColumn="RegId" DataSetColumn="RegId" />
+              <Mapping SourceColumn="EmailNumber" DataSetColumn="EmailNumber" />
+              <Mapping SourceColumn="Password" DataSetColumn="Password" />
+              <Mapping SourceColumn="DonorName" DataSetColumn="DonorName" />
+              <Mapping SourceColumn="Phone" DataSetColumn="Phone" />
+              <Mapping SourceColumn="Age" DataSetColumn="Age" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="Qualification" DataSetColumn="Qualification" />
+              <Mapping SourceColumn="Photo" DataSetColumn="Photo" />
+              <Mapping SourceColumn="ImageUrl" DataSetColumn="ImageUrl" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="GenderId" DataSetColumn="GenderId" />
+              <Mapping SourceColumn="Expr2" DataSetColumn="Expr2" />
+              <Mapping SourceColumn="GenderName" DataSetColumn="GenderName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="NewRegistrationReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="NewRegistrationReport" msprop:Generator_UserDSName="NewRegistrationReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="NewRegistration" msprop:Generator_TableClassName="NewRegistrationDataTable" msprop:Generator_TableVarName="tableNewRegistration" msprop:Generator_TablePropName="NewRegistration" msprop:Generator_RowDeletingName="NewRegistrationRowDeleting" msprop:Generator_RowChangingName="NewRegistrationRowChanging" msprop:Generator_RowEvHandlerName="NewRegistrationRowChangeEventHandler" msprop:Generator_RowDeletedName="NewRegistrationRowDeleted" msprop:Generator_UserTableName="NewRegistration" msprop:Generator_RowChangedName="NewRegistrationRowChanged" msprop:Generator_RowEvArgName="NewRegistrationRowChangeEvent" msprop:Generator_RowClassName="NewRegistrationRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GroupId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnGroupId" msprop:Generator_ColumnPropNameInRow="GroupId" msprop:Generator_ColumnPropNameInTable="GroupIdColumn" msprop:Generator_UserColumnName="GroupId" type="xs:int" />
+              <xs:element name="GroupName" msprop:Generator_ColumnVarNameInTable="columnGroupName" msprop:Generator_ColumnPropNameInRow="GroupName" msprop:Generator_ColumnPropNameInTable="GroupNameColumn" msprop:Generator_UserColumnName="GroupName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RegId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnRegId" msprop:Generator_ColumnPropNameInRow="RegId" msprop:Generator_ColumnPropNameInTable="RegIdColumn" msprop:Generator_UserColumnName="RegId" type="xs:int" />
+              <xs:element name="EmailNumber" msprop:Generator_ColumnVarNameInTable="columnEmailNumber" msprop:Generator_ColumnPropNameInRow="EmailNumber" msprop:Generator_ColumnPropNameInTable="EmailNumberColumn" msprop:Generator_UserColumnName="EmailNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Password" msprop:Generator_ColumnVarNameInTable="columnPassword" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_UserColumnName="Password" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DonorName" msprop:Generator_ColumnVarNameInTable="columnDonorName" msprop:Generator_ColumnPropNameInRow="DonorName" msprop:Generator_ColumnPropNameInTable="DonorNameColumn" msprop:Generator_UserColumnName="DonorName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_UserColumnName="Phone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Age" msprop:Generator_ColumnVarNameInTable="columnAge" msprop:Generator_ColumnPropNameInRow="Age" msprop:Generator_ColumnPropNameInTable="AgeColumn" msprop:Generator_UserColumnName="Age" type="xs:int" />
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Qualification" msprop:Generator_ColumnVarNameInTable="columnQualification" msprop:Generator_ColumnPropNameInRow="Qualification" msprop:Generator_ColumnPropNameInTable="QualificationColumn" msprop:Generator_UserColumnName="Qualification" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Photo" msprop:Generator_ColumnVarNameInTable="columnPhoto" msprop:Generator_ColumnPropNameInRow="Photo" msprop:Generator_ColumnPropNameInTable="PhotoColumn" msprop:Generator_UserColumnName="Photo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="ImageUrl" msprop:Generator_ColumnVarNameInTable="columnImageUrl" msprop:Generator_ColumnPropNameInRow="ImageUrl" msprop:Generator_ColumnPropNameInTable="ImageUrlColumn" msprop:Generator_UserColumnName="ImageUrl" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" type="xs:int" />
+              <xs:element name="GenderId" msprop:Generator_ColumnVarNameInTable="columnGenderId" msprop:Generator_ColumnPropNameInRow="GenderId" msprop:Generator_ColumnPropNameInTable="GenderIdColumn" msprop:Generator_UserColumnName="GenderId" type="xs:int" />
+              <xs:element name="Expr2" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnExpr2" msprop:Generator_ColumnPropNameInRow="Expr2" msprop:Generator_ColumnPropNameInTable="Expr2Column" msprop:Generator_UserColumnName="Expr2" type="xs:int" />
+              <xs:element name="GenderName" msprop:Generator_ColumnVarNameInTable="columnGenderName" msprop:Generator_ColumnPropNameInRow="GenderName" msprop:Generator_ColumnPropNameInTable="GenderNameColumn" msprop:Generator_UserColumnName="GenderName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:NewRegistration" />
+      <xs:field xpath="mstns:GroupId" />
+      <xs:field xpath="mstns:RegId" />
+      <xs:field xpath="mstns:Expr2" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
