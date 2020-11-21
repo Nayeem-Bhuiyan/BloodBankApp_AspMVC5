@@ -21,9 +21,12 @@ Project Tools And Technology:
 				9 Rolebased Authentications and Authorizations
 				
 ProjectOperations:
+
+
                   1 Insert update delete paginations with image
 		  
 		  2 Search using ajax 
+		  
                   
-       please sql_Backup to run the project
+                   please sql_Backup to run the project
  
