@@ -10,15 +10,20 @@ Project Tools And Technology:
         
 				4 Models:Code-first
         
-        5 Dot net Framework:4.6
+                                5 Dot net Framework:4.6
+				
+			        6 Visual studio:2019
+
+                                7 Sql server management studio:18.4
         
-				6 viewModel
+				8 viewModel
         
-				7 Rolebased Authentications and Authorizations
+				9 Rolebased Authentications and Authorizations
 				
 ProjectOperations:
                   1 Insert update delete paginations with image
-		              2 Search using ajax 
+		  
+		  2 Search using ajax 
                   
        please sql_Backup to run the project
  
